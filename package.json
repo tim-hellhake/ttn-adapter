@@ -1,0 +1,38 @@
+{
+  "name": "ttn-adapter",
+  "display_name": "The Things Network adapter",
+  "version": "0.1.0",
+  "description": "Connect your lora sensors from https://thethingsnetwork.org",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tim-hellhake/ttn-adapter.git"
+  },
+  "author": "Tim Hellhake",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/tim-hellhake/ttn-adapter/issues"
+  },
+  "homepage": "https://github.com/tim-hellhake/ttn-adapter#readme",
+  "files": [
+    "LICENSE",
+    "SHA256SUMS",
+    "manifest.json",
+    "lib/index.js",
+    "lib/ttn-adapter.js"
+  ],
+  "dependencies": {
+    "@types/node-fetch": "^2.5.7",
+    "node-fetch": "^2.6.0",
+    "ttn": "^2.3.3"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3",
+    "@types/node": "^13.13.4"
+  }
+}

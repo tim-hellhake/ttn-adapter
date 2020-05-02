@@ -1,0 +1,47 @@
+{
+  "manifest_version": 1,
+  "id": "ttn-adapter",
+  "name": "The Things Network",
+  "short_name": "TTN",
+  "version": "0.1.0",
+  "description": "Connect your lora sensors from https://thethingsnetwork.org",
+  "homepage_url": "https://github.com/tim-hellhake/ttn-adapter#readme",
+  "license": "MPL-2.0",
+  "author": "Tim Hellhake",
+  "gateway_specific_settings": {
+    "webthings": {
+      "exec": "{nodeLoader} {path}",
+      "strict_min_version": "0.10.0",
+      "strict_max_version": "*",
+      "primary_type": "adapter"
+    }
+  },
+  "options": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "applications": {
+          "type": "array",
+          "title": "A list of applications",
+          "items": {
+            "type": "object",
+            "required": [
+              "appID",
+              "accessKey"
+            ],
+            "properties": {
+              "appID": {
+                "type": "string",
+                "title": "The id of your app"
+              },
+              "accessKey": {
+                "type": "string",
+                "title": "The access key for your app"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
