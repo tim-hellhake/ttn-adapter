@@ -27,12 +27,13 @@
     "lib/ttn-adapter.js"
   ],
   "dependencies": {
-    "@types/node-fetch": "^2.5.7",
-    "node-fetch": "^2.6.0",
-    "ttn": "^2.3.3"
+    "mqtt": "^4.0.0",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "typescript": "^3.8.3",
-    "@types/node": "^13.13.4"
+    "@types/mqtt": "^2.5.0",
+    "@types/node": "^13.13.4",
+    "@types/node-fetch": "^2.5.7",
+    "typescript": "^3.8.3"
   }
 }

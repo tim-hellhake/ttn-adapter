@@ -37,6 +37,16 @@
               "accessKey": {
                 "type": "string",
                 "title": "The access key for your app"
+              },
+              "region": {
+                "type": "string",
+                "title": "The region of your handler",
+                "enum": [
+                  "eu",
+                  "us-west",
+                  "brazil",
+                  "asia-se"
+                ]
               }
             }
           }

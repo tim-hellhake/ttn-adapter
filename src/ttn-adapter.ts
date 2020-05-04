@@ -6,7 +6,38 @@
 
 import { Adapter, Device, Property } from 'gateway-addon';
 
-import { data, Payload } from 'ttn'
+import { connect } from 'mqtt'
+
+interface Payload {
+  app_id: string,
+  dev_id: string,
+  hardware_serial: string,
+  port: number,
+  counter: number,
+  confirmed: boolean,
+  payload_raw: Buffer,
+  payload_fields: object,
+  metadata:
+  {
+    time: string,
+    frequency: number,
+    modulation: string,
+    data_rate: string,
+    airtime: number,
+    coding_rate: string,
+    gateways: Gateway[]
+  }
+}
+
+interface Gateway {
+  gtw_id: string,
+  timestamp: number,
+  time: string,
+  channel: number,
+  rssi: number,
+  snr: number,
+  rf_chain: number
+}
 
 class Ttn extends Device {
   constructor(adapter: any, id: string, payload: Payload) {
@@ -84,21 +115,37 @@ export class TtnAdapter extends Adapter {
     for (const application of this.manifest.moziot.config.applications || []) {
       const {
         appID,
-        accessKey
+        accessKey,
+        region
       } = application;
 
-      this.startListening(appID, accessKey);
+      this.startListening(appID, accessKey, region || 'eu');
     }
   }
 
-  private async startListening(appID: string, accessKey: string) {
-    const client = await data(appID, accessKey);
+  private async startListening(appID: string, accessKey: string, region: string) {
+    const host = `${region}.thethings.network`;
 
-    client.on('uplink', (_, payload) => {
+    console.log(`Connecting to ${host}`);
+
+    const mqtt = connect({
+      host,
+      port: 1883,
+      username: appID,
+      password: accessKey,
+    });
+
+    mqtt.on("error", (error) => console.error("Could not connect to mqtt server ", error));
+    mqtt.on("connect", () => console.log("Successfully connected to mqtt server"));
+    mqtt.on("message", (_, message: Buffer) => {
+      const payload: Payload = JSON.parse(message.toString());
+
       if (payload.payload_fields) {
         this.onPayload(payload);
       }
     });
+
+    mqtt.subscribe('+/devices/+/up');
   }
 
   private onPayload(payload: Payload) {
