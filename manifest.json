@@ -27,7 +27,8 @@
             "type": "object",
             "required": [
               "appID",
-              "accessKey"
+              "accessKey",
+              "region"
             ],
             "properties": {
               "appID": {
