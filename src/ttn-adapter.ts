@@ -55,6 +55,7 @@ class Ttn extends Device {
 
         if (propertyName === 'temperature') {
           additionalProperties['@type'] = 'TemperatureProperty';
+          additionalProperties['unit'] = 'degree celsius';
           this['@type'].push('TemperatureSensor');
         }
 
