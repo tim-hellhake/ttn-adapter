@@ -59,6 +59,10 @@ class Ttn extends Device {
           this['@type'].push('TemperatureSensor');
         }
 
+        if (propertyName === 'humidity') {
+          additionalProperties['unit'] = '%';
+        }
+
         this.addProperty(propertyName, {
           ...additionalProperties,
           type,
