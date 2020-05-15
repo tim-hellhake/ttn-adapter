@@ -61,6 +61,8 @@ class Ttn extends Device {
 
         if (propertyName === 'humidity') {
           additionalProperties['unit'] = '%';
+          additionalProperties['minimum'] = '0';
+          additionalProperties['maximum'] = '100';
         }
 
         this.addProperty(propertyName, {
