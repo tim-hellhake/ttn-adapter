@@ -60,9 +60,11 @@ class Ttn extends Device {
         }
 
         if (propertyName === 'humidity') {
+          additionalProperties['@type'] = 'HumidityProperty';
           additionalProperties['unit'] = '%';
           additionalProperties['minimum'] = '0';
           additionalProperties['maximum'] = '100';
+          this['@type'].push('HumiditySensor');
         }
 
         this.addProperty(propertyName, {
