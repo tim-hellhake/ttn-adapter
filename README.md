@@ -1,6 +1,6 @@
 # The Things Network Adapter
 
-[![Build Status](https://travis-ci.org/tim-hellhake/ttn-adapter.svg?branch=master)](https://travis-ci.org/tim-hellhake/ttn-adapter)
+[![Build Status](https://github.com/tim-hellhake/ttn-adapter/workflows/Build/badge.svg)](https://github.com/tim-hellhake/ttn-adapter/actions?query=workflow%3ABuild)
 [![dependencies](https://david-dm.org/tim-hellhake/ttn-adapter.svg)](https://david-dm.org/tim-hellhake/ttn-adapter)
 [![devDependencies](https://david-dm.org/tim-hellhake/ttn-adapter/dev-status.svg)](https://david-dm.org/tim-hellhake/ttn-adapter?type=dev)
 [![optionalDependencies](https://david-dm.org/tim-hellhake/ttn-adapter/optional-status.svg)](https://david-dm.org/tim-hellhake/ttn-adapter?type=optional)
