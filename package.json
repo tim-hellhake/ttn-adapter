@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "mqtt": "^4.1.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@types/mqtt": "^2.5.0",
