@@ -67,6 +67,14 @@ class Ttn extends Device {
           this['@type'].push('HumiditySensor');
         }
 
+        if (propertyName === 'pressure') {
+          additionalProperties['@type'] = 'BarometricPressureProperty';
+          additionalProperties['unit'] = 'hectopascal';
+          additionalProperties['minimum'] = '0';
+          additionalProperties['maximum'] = '1085';
+          this['@type'].push('BarometricPressureSensor');
+        }
+
         this.addProperty(propertyName, {
           ...additionalProperties,
           type,
