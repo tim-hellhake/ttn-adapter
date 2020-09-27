@@ -3,7 +3,7 @@
   "id": "ttn-adapter",
   "name": "The Things Network",
   "short_name": "TTN",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Connect your lora sensors from https://thethingsnetwork.org",
   "homepage_url": "https://github.com/tim-hellhake/ttn-adapter#readme",
   "license": "MPL-2.0",
