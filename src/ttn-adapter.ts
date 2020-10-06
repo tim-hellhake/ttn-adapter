@@ -75,6 +75,15 @@ class Ttn extends Device {
           this['@type'].push('BarometricPressureSensor');
         }
 
+        const airQualityProperties = ['pm25', 'pm2.5', 'pm10']
+
+        if (airQualityProperties.indexOf(propertyName) > -1) {
+          additionalProperties['@type'] = 'DensityProperty';
+          additionalProperties['unit'] = 'micrograms per cubic metre';
+          additionalProperties['minimum'] = '0';
+          this['@type'].push('AirQualitySensor');
+        }
+
         this.addProperty(propertyName, {
           ...additionalProperties,
           type,
